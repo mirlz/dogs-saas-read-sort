@@ -16,11 +16,14 @@ const DoggoSearch = (props) => {
       },
     })
       .then((response) => {
-        props.setDogs(response.data);
-        props.setLoading(false);
+        if (response.data) {
+          props.setDogs(response.data);
+          props.setLoading(false);
+        }
+        throw new Error('no data');
       })
       .catch((err) => {
-        console.log("fetch doggos err: ", JSON.stringify(err));
+        console.log("fetch doggos err: ", err);
         props.setError(true);
         props.setLoading(false);
       });

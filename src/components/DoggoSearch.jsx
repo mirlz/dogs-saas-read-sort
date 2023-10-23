@@ -6,7 +6,6 @@ import apis from "../store/api.json";
 
 const DoggoSearch = (props) => {
   const fetchDogs = (searchTerm) => {
-    console.log(import.meta.env.VITE_DOGAPI_KEY);
     props.setLoading(true);
     axios({
       method: "GET",
